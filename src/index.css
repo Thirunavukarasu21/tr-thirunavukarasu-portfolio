@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans antialiased;
+    background: linear-gradient(135deg, #0b0f19 0%, #1a1d2e 50%, #0b0f19 100%);
+    color: #e2e8f0;
+  }
+}
+
+/* Cyber Theme Animations */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+  }
+  50% {
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.cyber-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.cyber-pulse {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.matrix-rain {
+  animation: matrix-rain 8s linear infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ffff, #00ff88);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00ffff, #00ff88, #ff00ff);
+}
+
+/* Print styles for PDF export */
+@media print {
+  body {
+    @apply bg-white text-slate-900;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print\:bg-white {
+    background: white !important;
+  }
+  .print\:text-slate-900 * {
+    color: #0f172a !important;
+  }
+  .print\:border-slate-200 * {
+    border-color: #e2e8f0 !important;
+  }
+}
+
+/* (Skill bars removed) */
